@@ -13,6 +13,18 @@ class Student
     string usn, name;
     int marks[3]; // Marks scored in 3 tests
 
+private:
+    float avg()
+    {
+        int min = marks[0];
+        for (int i = 1; i < 3; i++)
+        {
+            if (marks[i] < min)
+                min = marks[i];
+        }
+        return (marks[0] + marks[1] + marks[2] - min) / 2;
+    }
+
 public:
     void getdata()
     {
@@ -24,48 +36,30 @@ public:
         for (int i = 0; i < 3; i++)
             cin >> marks[i];
     }
+
     void putdata()
     {
         cout << "USN: " << usn << endl;
         cout << "Name: " << name << endl;
-        cout << "Marks in 3 tests: ";
-        for (int i = 0; i < 3; i++)
-            cout << marks[i] << " ";
-        cout << endl;
-    }
-    float avg()
-    {
-        int min = marks[0], max = marks[0];
-        for (int i = 1; i < 3; i++)
-        {
-            if (marks[i] < min)
-                min = marks[i];
-            if (marks[i] > max)
-                max = marks[i];
-        }
-        return (marks[0] + marks[1] + marks[2] - min - max) / 1.0;
+        cout << "Average marks: " << this->avg() << endl;
     }
 };
 
 int main()
 {
-    Student s[10];
-    for (int i = 0; i < 10; i++)
+    Student s[4];
+    for (int i = 0; i < 4; i++)
     {
-        cout << "Enter details of student " << i + 1 << endl;
+        cout << "Enter details of student" << i + 1 << endl;
         s[i].getdata();
     }
-    cout << "Details of students: " << endl;
-    for (int i = 0; i < 10; i++)
+
+    for (int i = 0; i < 4; i++)
     {
-        cout << "Student " << i + 1 << endl;
+        cout << "******** Details of student - " << i + 1 << "********" << endl;
         s[i].putdata();
-    }
-    cout << "Average marks of students: " << endl;
-    for (int i = 0; i < 10; i++)
-    {
-        cout << "Student " << i + 1 << endl;
-        cout << "Average marks: " << s[i].avg() << endl;
+        cout << "***************************************" << endl;
+        cout << endl;
     }
     return 0;
 }
