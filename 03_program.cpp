@@ -47,14 +47,14 @@ public:
 
 int main()
 {
-    Student s[4];
-    for (int i = 0; i < 4; i++)
+    Student s[10];
+    for (int i = 0; i < 10; i++)
     {
         cout << "Enter details of student" << i + 1 << endl;
         s[i].getdata();
     }
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 10; i++)
     {
         cout << "******** Details of student - " << i + 1 << "********" << endl;
         s[i].putdata();
